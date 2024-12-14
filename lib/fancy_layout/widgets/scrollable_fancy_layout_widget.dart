@@ -21,12 +21,15 @@ class ScrollableFancyLayout extends StatelessWidget {
     return ConstrainedBox(
       constraints: constraints,
       child: SingleChildScrollView(
-          child: ConstrainedBox(
-              constraints: constraints,
-              child: FancyLayout(
-                  widgets: widgets,
-                  offsetBetweenWidgets: offsetBetweenWidgets,
-                  padding: padding))),
+        child: ConstrainedBox(
+          constraints: constraints,
+          child: FancyLayout(
+            widgets: widgets,
+            offsetBetweenWidgets: offsetBetweenWidgets,
+            padding: padding,
+          ),
+        ),
+      ),
     );
   }
 }

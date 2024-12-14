@@ -18,16 +18,17 @@ class _InventoryTitleBarState extends State<InventoryTitleBar> {
           spacing: 5,
           children: [
             StatDisplay(
-                icon: Icon(
-                  Icons.savings,
-                  color: Colors.yellow,
-                  size: 40.0,
-                  semanticLabel: "Gold",
-                ),
-                initialValue: 27,
-                textStyle: TextStyle(
-                  color: Colors.white,
-                )),
+              icon: Icon(
+                Icons.savings,
+                color: Colors.yellow,
+                size: 40.0,
+                semanticLabel: "Gold",
+              ),
+              initialValue: 27,
+              textStyle: TextStyle(
+                color: Colors.white,
+              ),
+            ),
           ],
         ),
       ],

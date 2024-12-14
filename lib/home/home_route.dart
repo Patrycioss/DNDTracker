@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../fancy_layout/fancy_layout.dart';
 import '../movable_widget.dart';
+import '../resource_widget.dart';
 import '../test_widget.dart';
 import 'home_title_bar.dart';
-import '../resource_widget.dart';
-import '../fancy_layout/fancy_layout.dart';
 
 class HomeRoute extends StatefulWidget {
   const HomeRoute({super.key});
@@ -39,12 +39,14 @@ class _HomeRouteState extends State<HomeRoute> {
       ),
       body: Center(
         child: LayoutBuilder(
-            builder: (context, constraints) => ScrollableFancyLayout(
-                widgets: movableWidgets,
-                offsetBetweenWidgets: const Offset(10, 10),
-                constraints: const BoxConstraints(
-                  maxHeight: 2000,
-                ))),
+          builder: (context, constraints) => ScrollableFancyLayout(
+            widgets: movableWidgets,
+            offsetBetweenWidgets: const Offset(10, 10),
+            constraints: const BoxConstraints(
+              maxHeight: 2000,
+            ),
+          ),
+        ),
       ),
     );
   }

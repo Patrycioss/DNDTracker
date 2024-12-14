@@ -7,7 +7,11 @@ class FancyLayoutDelegate extends MultiChildLayoutDelegate {
 
   final List<_LayoutRow> _rows = [];
 
-  FancyLayoutDelegate(this.ids, this.offsetBetweenWidgets, this.padding);
+  FancyLayoutDelegate(
+    this.ids,
+    this.offsetBetweenWidgets,
+    this.padding,
+  );
 
   @override
   void performLayout(Size size) {
@@ -50,7 +54,7 @@ class FancyLayoutDelegate extends MultiChildLayoutDelegate {
   }
 
   Offset _calcOffset(double x, Size size, _LayoutRow? aboveRow) {
-    double? properY = 0;
+    double properY = 0;
     double thisRightBound = x + size.width;
 
     if (aboveRow == null) {
@@ -65,13 +69,13 @@ class FancyLayoutDelegate extends MultiChildLayoutDelegate {
       if (info.offset.dx < thisRightBound && infoRightBound > x) {
         double proposedY =
             info.offset.dy + offsetBetweenWidgets.dy + info.size.height;
-        if (properY == null || proposedY > properY) {
+        if (proposedY > properY) {
           properY = proposedY;
         }
       }
     }
 
-    return Offset(x, properY!);
+    return Offset(x, properY);
   }
 
   @override

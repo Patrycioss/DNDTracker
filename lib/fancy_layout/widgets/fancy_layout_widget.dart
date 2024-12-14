@@ -23,13 +23,12 @@ class _FancyLayoutState extends State<FancyLayout> {
   Widget build(BuildContext context) {
     return CustomMultiChildLayout(
       delegate: FancyLayoutDelegate(
-          widget.widgets.keys.toList(),
-          widget.offsetBetweenWidgets ?? Offset.zero,
-          widget.padding ?? Offset.zero),
+        widget.widgets.keys.toList(),
+        widget.offsetBetweenWidgets ?? Offset.zero,
+        widget.padding ?? Offset.zero,
+      ),
       children: <Widget>[
-        // Create all of the colored boxes in the colors map.
         for (final entry in widget.widgets.entries)
-          // The "id" can be any Object, not just a String.
           LayoutId(
             id: entry.key,
             child: entry.value,

@@ -3,15 +3,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ResourceWidget extends MovableWidget {
-  const ResourceWidget({super.key});
+  ResourceWidget({super.key})
+      : super(
+          name: "Resources",
+          childWidget: _ResourceChildWidget(),
+          width: 250,
+          height: 200,
+        );
+}
 
+class _ResourceChildWidget extends StatelessWidget {
   @override
-  Widget buildChild() {
-    return const Text("Resource!");
-  }
-
-  @override
-  Widget buildTitle() {
-    return const Text("Resources");
+  Widget build(BuildContext context) {
+    return const Text("Resources of course");
   }
 }

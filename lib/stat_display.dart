@@ -53,16 +53,17 @@ class _StatDisplayState extends State<StatDisplay> {
           Container(
             alignment: Alignment.centerLeft,
             child: TextField(
-                keyboardType: TextInputType.number,
-                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                onSubmitted: (value) => currentValue = int.parse(value),
-                controller: _textEditingController,
-                decoration: null,
-                textAlign: TextAlign.left,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                )),
+              keyboardType: TextInputType.number,
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+              onSubmitted: (value) => currentValue = int.parse(value),
+              controller: _textEditingController,
+              decoration: null,
+              textAlign: TextAlign.left,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+              ),
+            ),
           ),
         ]),
       ),
