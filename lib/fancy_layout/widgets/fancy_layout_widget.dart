@@ -15,24 +15,21 @@ class FancyLayout extends StatefulWidget {
   });
 
   @override
-  State<FancyLayout> createState() => _ScrollableFancyLayoutState();
+  State<FancyLayout> createState() => _FancyLayoutState();
 }
 
-class _ScrollableFancyLayoutState extends State<FancyLayout> {
-  double height = 2000;
-
+class _FancyLayoutState extends State<FancyLayout> {
   @override
   Widget build(BuildContext context) {
     return CustomMultiChildLayout(
       delegate: FancyLayoutDelegate(
           widget.widgets.keys.toList(),
           widget.offsetBetweenWidgets ?? Offset.zero,
-          widget.padding ?? Offset.zero,
-              (height) => this.height = height),
+          widget.padding ?? Offset.zero),
       children: <Widget>[
         // Create all of the colored boxes in the colors map.
         for (final entry in widget.widgets.entries)
-        // The "id" can be any Object, not just a String.
+          // The "id" can be any Object, not just a String.
           LayoutId(
             id: entry.key,
             child: entry.value,

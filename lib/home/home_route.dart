@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:dnd_tracker/movable_widget.dart';
-import 'package:dnd_tracker/test_widget.dart';
-import 'package:dnd_tracker/home/home_title_bar.dart';
-import 'package:dnd_tracker/resource_widget.dart';
-
+import '../movable_widget.dart';
+import '../test_widget.dart';
+import 'home_title_bar.dart';
+import '../resource_widget.dart';
 import '../fancy_layout/fancy_layout.dart';
 
 class HomeRoute extends StatefulWidget {

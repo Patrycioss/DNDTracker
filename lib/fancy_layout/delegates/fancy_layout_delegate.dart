@@ -4,20 +4,16 @@ class FancyLayoutDelegate extends MultiChildLayoutDelegate {
   final Offset offsetBetweenWidgets;
   final Offset padding;
   final Iterable<String> ids;
-  final Function(double) heightCallback;
 
   final List<_LayoutRow> _rows = [];
 
-  FancyLayoutDelegate(
-      this.ids, this.offsetBetweenWidgets, this.padding, this.heightCallback);
+  FancyLayoutDelegate(this.ids, this.offsetBetweenWidgets, this.padding);
 
   @override
   void performLayout(Size size) {
     int currentRow = 0;
     int rowIndex = 0;
     _rows.add(_LayoutRow());
-
-    double lowestY = 0;
 
     for (var id in ids) {
       final Size currentSize = layoutChild(
@@ -47,15 +43,10 @@ class FancyLayoutDelegate extends MultiChildLayoutDelegate {
       positionChild(id, position);
       _rows[currentRow].infos.add(_LayoutInfo(position, currentSize));
 
-      if (position.dy > lowestY) {
-        lowestY = position.dy;
-      }
-
       rowIndex++;
     }
 
     _rows.clear();
-    heightCallback(lowestY);
   }
 
   Offset _calcOffset(double x, Size size, _LayoutRow? aboveRow) {
