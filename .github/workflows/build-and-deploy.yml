@@ -1,0 +1,72 @@
+name: Deploy to GitHub Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: stable
+          flutter-version: 3.24.5
+
+      - name: Set Flutter Beta Channel
+        run: flutter channel beta
+
+      - name: Upgrade Flutter
+        run: flutter upgrade
+
+      - name: Enable Flutter Web
+        run: flutter config --enable-web
+
+      - name: Download Dependencies
+        run: flutter pub get
+
+      - name: Add Web App?
+        run: flutter create .
+
+      - name: Build
+        run: flutter build web --release --base-href="/DNDTracker/" 
+
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with: 
+          path: 'build/web'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+        
+
+        
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./build/web
+      #     force_orphan: true
+      #     user_name: 'github-ci[bot]'
+      #     user_email: 'github-actions[bot]@users.noreply.github.com'
+      #     commit_message: 'Publish to gh-pages'
