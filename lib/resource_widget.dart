@@ -1,12 +1,13 @@
 import 'package:dnd_tracker/movable_widget.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class ResourceWidget extends MovableWidget {
-  ResourceWidget({super.key});
+  const ResourceWidget({super.key});
 
   @override
   Widget buildChild() {
-    return const Text("Hi");
+    return const Text("Resource!");
   }
 
   @override
