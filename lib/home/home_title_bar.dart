@@ -1,23 +1,24 @@
+import 'package:dnd_tracker/inventory/inventory_route.dart';
 import 'package:flutter/material.dart';
 
-import 'package:deez_nassive_duts/stat_display.dart';
+import 'package:dnd_tracker/stat_display.dart';
 
-class TitleBar extends StatefulWidget {
-  const TitleBar({super.key});
+class HomeTitleBar extends StatefulWidget {
+  const HomeTitleBar({super.key});
 
   @override
-  State<TitleBar> createState() => _TitleBarState();
+  State<HomeTitleBar> createState() => _HomeTitleBarState();
 }
 
-class _TitleBarState extends State<TitleBar> {
+class _HomeTitleBarState extends State<HomeTitleBar> {
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       children: [
         Wrap(
           spacing: 5,
           children: [
-            StatDisplay(
+            const StatDisplay(
                 icon: Icon(
                   Icons.favorite,
                   color: Colors.black,
@@ -28,7 +29,7 @@ class _TitleBarState extends State<TitleBar> {
                 textStyle: TextStyle(
                   color: Colors.white,
                 )),
-            StatDisplay(
+            const StatDisplay(
                 icon: Icon(
                   Icons.favorite,
                   color: Colors.pink,
@@ -36,14 +37,21 @@ class _TitleBarState extends State<TitleBar> {
                   semanticLabel: "CurrentHealth",
                 ),
                 initialValue: 27),
-            StatDisplay(
+            const StatDisplay(
                 icon: Icon(
                   Icons.shield,
                   color: Colors.blue,
                   size: 40.0,
                   semanticLabel: "Armor",
                 ),
-                initialValue: 21)
+                initialValue: 21),
+
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const InventoryRoute()));
+              },
+              child: const Icon(Icons.backpack, color: Colors.brown,),
+            )
           ],
         ),
       ],

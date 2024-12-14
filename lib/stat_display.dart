@@ -44,12 +44,11 @@ class _StatDisplayState extends State<StatDisplay> {
           color: const Color(0xff7c94b6),
           borderRadius: BorderRadius.circular(12),
         ),
-        padding: EdgeInsets.all(5),
-
+        padding: const EdgeInsets.all(5),
         child: Stack(alignment: Alignment.center, children: [
           Container(
-              child: widget.icon,
             alignment: Alignment.centerRight,
+            child: widget.icon,
           ),
           Container(
             alignment: Alignment.centerLeft,
