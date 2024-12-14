@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:dnd_tracker/FancyLayout.dart';
 import 'package:dnd_tracker/movable_widget.dart';
 import 'package:dnd_tracker/test_widget.dart';
 import 'package:dnd_tracker/home/home_title_bar.dart';
