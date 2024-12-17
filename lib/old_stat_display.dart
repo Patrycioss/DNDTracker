@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class StatDisplay extends StatefulWidget {
+class OldStatDisplay extends StatefulWidget {
   final Icon icon;
   final int initialValue;
   final TextStyle? textStyle;
 
-  const StatDisplay(
+  const OldStatDisplay(
       {super.key,
       required this.icon,
       required this.initialValue,
       this.textStyle = const TextStyle(color: Colors.white)});
 
   @override
-  State<StatDisplay> createState() => _StatDisplayState();
+  State<OldStatDisplay> createState() => _OldStatDisplayState();
 }
 
-class _StatDisplayState extends State<StatDisplay> {
+class _OldStatDisplayState extends State<OldStatDisplay> {
   final TextEditingController _textEditingController = TextEditingController();
   late int currentValue;
   late int size;

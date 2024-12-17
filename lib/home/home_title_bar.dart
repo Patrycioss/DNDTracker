@@ -1,7 +1,6 @@
 import 'package:dnd_tracker/inventory/inventory_route.dart';
+import 'package:dnd_tracker/old_stat_display.dart';
 import 'package:flutter/material.dart';
-
-import 'package:dnd_tracker/stat_display.dart';
 
 class HomeTitleBar extends StatefulWidget {
   const HomeTitleBar({super.key});
@@ -18,7 +17,7 @@ class _HomeTitleBarState extends State<HomeTitleBar> {
         Wrap(
           spacing: 5,
           children: [
-            const StatDisplay(
+            const OldStatDisplay(
                 icon: Icon(
                   Icons.favorite,
                   color: Colors.black,
@@ -29,7 +28,7 @@ class _HomeTitleBarState extends State<HomeTitleBar> {
                 textStyle: TextStyle(
                   color: Colors.white,
                 )),
-            const StatDisplay(
+            const OldStatDisplay(
                 icon: Icon(
                   Icons.favorite,
                   color: Colors.pink,
@@ -37,7 +36,7 @@ class _HomeTitleBarState extends State<HomeTitleBar> {
                   semanticLabel: "CurrentHealth",
                 ),
                 initialValue: 27),
-            const StatDisplay(
+            const OldStatDisplay(
                 icon: Icon(
                   Icons.shield,
                   color: Colors.blue,
@@ -45,12 +44,17 @@ class _HomeTitleBarState extends State<HomeTitleBar> {
                   semanticLabel: "Armor",
                 ),
                 initialValue: 21),
-
             ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const InventoryRoute()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const InventoryRoute()));
               },
-              child: const Icon(Icons.backpack, color: Colors.brown,),
+              child: const Icon(
+                Icons.backpack,
+                color: Colors.brown,
+              ),
             )
           ],
         ),

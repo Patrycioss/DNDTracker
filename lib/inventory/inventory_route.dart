@@ -1,7 +1,6 @@
 import 'package:dnd_tracker/inventory/inventory_title_bar.dart';
 import 'package:flutter/material.dart';
 
-
 class InventoryRoute extends StatelessWidget {
   const InventoryRoute({super.key});
 
@@ -15,8 +14,7 @@ class InventoryRoute extends StatelessWidget {
       body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-          ],
+          children: <Widget>[],
         ),
       ),
     );

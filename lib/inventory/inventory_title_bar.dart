@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../stat_display.dart';
+import '../old_stat_display.dart';
 
 class InventoryTitleBar extends StatefulWidget {
   const InventoryTitleBar({super.key});
@@ -17,7 +17,7 @@ class _InventoryTitleBarState extends State<InventoryTitleBar> {
         Wrap(
           spacing: 5,
           children: [
-            StatDisplay(
+            OldStatDisplay(
               icon: Icon(
                 Icons.savings,
                 color: Colors.yellow,
