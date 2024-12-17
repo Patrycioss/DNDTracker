@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import '../delegates/fancy_layout_delegate.dart';
 
 class FancyLayout extends StatefulWidget {
-  final Map<String, Widget> widgets;
+  final List<(String, Widget)> widgets;
   final Offset? offsetBetweenWidgets;
   final Offset? padding;
 
@@ -23,15 +23,15 @@ class _FancyLayoutState extends State<FancyLayout> {
   Widget build(BuildContext context) {
     return CustomMultiChildLayout(
       delegate: FancyLayoutDelegate(
-        widget.widgets.keys.toList(),
+        widget.widgets.map((e) => e.$1),
         widget.offsetBetweenWidgets ?? Offset.zero,
         widget.padding ?? Offset.zero,
       ),
       children: <Widget>[
-        for (final entry in widget.widgets.entries)
+        for (final entry in widget.widgets)
           LayoutId(
-            id: entry.key,
-            child: entry.value,
+            id: entry.$1,
+            child: entry.$2,
           ),
       ],
     );

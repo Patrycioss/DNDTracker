@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-abstract class MovableWidget extends StatelessWidget {
+class BaseStatCard extends StatelessWidget {
   final String name;
-  final Widget? titleWidget;
-  final Widget? childWidget;
+  final Widget? title;
+  final Widget? child;
   final double? width;
   final double? height;
 
-  const MovableWidget({
+  const BaseStatCard({
     super.key,
     required this.name,
-    this.titleWidget,
-    this.childWidget,
+    this.title,
+    this.child,
     double? width,
     double? height,
   })  : width = width ?? 300,
@@ -23,14 +23,14 @@ abstract class MovableWidget extends StatelessWidget {
       width: width,
       child: ExpansionTile(
         backgroundColor: Colors.red,
-        title: titleWidget ?? Text(name),
+        title: title ?? Text(name),
         children: [
           SizedBox(
             height: height,
             child: Container(
               alignment: Alignment.center,
               padding: const EdgeInsets.all(10),
-              child: childWidget,
+              child: child,
             ),
           )
         ],

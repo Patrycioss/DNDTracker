@@ -4,7 +4,7 @@ import 'fancy_layout_widget.dart';
 
 class ScrollableFancyLayout extends StatelessWidget {
   final BoxConstraints constraints;
-  final Map<String, Widget> widgets;
+  final List<(String, Widget)> widgets;
   final Offset? offsetBetweenWidgets;
   final Offset? padding;
 
